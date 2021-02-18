@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/location1_1">
+
+    <LinearLayout
+
+        android:id="@+id/mainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="489dp"
+        android:layout_marginBottom="90dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <Button
+            android:id="@+id/location2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Спасибо!"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/location2_1"
+            android:layout_width="250dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Можно кофе?"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/location2_2"
+            android:layout_width="250dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Подскажите игру!"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="115dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/text_background3"
+        android:fontFamily="@font/rex_bold"
+        android:paddingStart="45dp"
+        android:paddingEnd="30dp"
+        android:paddingTop="10dp"
+        android:text="Вот ваша карточка!\nпо ней мы считаем время \nи на нее идут бонусы!"
+        android:textColor="@color/colorNameApp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,RtlSymmetry" />
+</androidx.constraintlayout.widget.ConstraintLayout>

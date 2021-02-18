@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/location4_3_3">
+
+    <LinearLayout
+
+        android:id="@+id/mainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="489dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/answer1"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Далее"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="384dp"
+        android:background="@drawable/text_background4"
+        android:fontFamily="@font/rex_bold"
+        android:paddingStart="40dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="30dp"
+        android:text="Чудесно! \nЕсли б тот парнишка\n не разлил его,\n я бы столько не прождал..."
+        android:textColor="@color/colorNameApp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,RtlSymmetry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

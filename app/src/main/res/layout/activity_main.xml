@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/nameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="7dp"
+            android:orientation="vertical"
+            android:textColor="@color/colorNameApp"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/playquest"
+                android:textColor="@color/colorNameApp"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/gaga"
+                android:textColor="@color/colorNameApp"
+                android:textSize="90sp" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/mainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/proceed"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_background_off"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/proceed"
+                android:textColor="@color/colorTextButton"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_pressed"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/play"
+                android:textColor="@color/colorTextButton"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_pressed"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/settings"
+                android:textColor="@color/colorTextButton"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/achievement"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_pressed"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/achievement"
+                android:textColor="@color/colorTextButton"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

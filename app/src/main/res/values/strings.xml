@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">PlayQuestGaGa</string>
+    <string name="proceed">Продолжить</string>
+    <string name="play">Играть</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Выход</string>
+    <string name="achievement">Достижения</string>
+    <string name="back">Назад</string>
+    <string name="playquest">PLAYQUEST</string>
+    <string name="gaga">GAGA</string>
+    <string name="settingsName">Настройки</string>
+    <string name="settingsVolume">Громкость:</string>
+    <string name="settingsOffOnSound">Звук в игре:</string>
+    <string name="settingsOnOff">Вкл/Откл</string>
+    <string name="settingsRadio">Выбор Радио:</string>
+    <string name="radio_gaga">Радио GAGA</string>
+    <string name="radio_birusa">Радио Бирюса Уилисса</string>
+    <string name="sherlock">Шерлок</string>
+    <string name="cofeemaniac">         Гроза\n капучинатора</string>
+    <string name="agent">Агент 007</string>
+    <string name="gameMaster">Игромастер</string>
+    <string name="kolya">Кто я?</string>
+    <string name="speed">Скорострел</string>
+    <string name="coffee">Кофенатор</string>
+    <string name="bizenismen">Бизенисмен</string>
+    <string name="rag">Тряпка</string>
+</resources>

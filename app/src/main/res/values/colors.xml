@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTextButton">#FFFFFF</color>
+    <color name="colorNameApp">#020202</color>
+    <color name="colorTextExit">#FF5722</color>
+    <color name="colorTransparent" />
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/location6_12">
+
+    <LinearLayout
+
+        android:id="@+id/mainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="489dp"
+        android:layout_marginBottom="90dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/answer1"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Конечно"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/answer2"
+            android:layout_width="330dp"
+            android:layout_height="52dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_pressed"
+            android:fontFamily="@font/rex_bold"
+            android:text="Нет, я пришел поиграть"
+            android:textColor="@color/colorTextButton"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+
+        android:layout_marginTop="44dp"
+        android:background="@drawable/text_background3"
+        android:fontFamily="@font/rex_bold"
+        android:paddingStart="30dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="30dp"
+        android:text="Такая интересная игра,\n не оторваться... \n поможете? Девушка хочет \n капучино..."
+        android:textColor="@color/colorNameApp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,RtlSymmetry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

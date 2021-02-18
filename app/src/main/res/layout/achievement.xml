@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/backFromAchievement"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_pressed"
+                android:fontFamily="@font/rex_bold"
+                android:text="@string/back"
+                android:textColor="@color/colorTextButton"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/gamemaster"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/gamemaster" />
+
+                <TextView
+                    android:id="@+id/textGameMaster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/gameMaster"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/kolya"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/kolya" />
+
+                <TextView
+                    android:id="@+id/textKolya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/kolya"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/speed"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/speed" />
+
+                <TextView
+                    android:id="@+id/textSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/speed"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/bizenismen"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bizenis" />
+
+                <TextView
+                    android:id="@+id/textBizenismen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/bizenismen"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sherlock"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/sherlock" />
+
+                <TextView
+                    android:id="@+id/textSherlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/sherlock"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/coffee"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/coffeemaniac" />
+
+                <TextView
+                    android:id="@+id/textCoffee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/coffee"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/agent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/agent007" />
+
+                <TextView
+                    android:id="@+id/textAgent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/agent"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/rag"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rag" />
+
+                <TextView
+                    android:id="@+id/textRag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/rex_bold"
+                    android:text="@string/rag"
+                    android:textColor="@color/colorNameApp"
+                    android:textSize="20sp"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
