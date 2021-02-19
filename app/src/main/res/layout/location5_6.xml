@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/location6_1">
+    android:background="@drawable/location5_6">
 
     <LinearLayout
 
@@ -23,24 +24,12 @@
 
         <Button
             android:id="@+id/answer1"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
             android:layout_margin="5dp"
             android:background="@drawable/button_pressed"
             android:fontFamily="@font/rex_bold"
-            android:text="Конечно"
-            android:textColor="@color/colorTextButton"
-            android:textSize="25sp"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/answer2"
-            android:layout_width="330dp"
-            android:layout_height="52dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_pressed"
-            android:fontFamily="@font/rex_bold"
-            android:text="Нет, я пришел поиграть"
+            android:text="Слышали о шуме на ресепшене?"
             android:textColor="@color/colorTextButton"
             android:textSize="25sp"
             tools:ignore="HardcodedText" />
@@ -49,19 +38,19 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-
-        android:layout_marginTop="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/text_background3"
         android:fontFamily="@font/rex_bold"
-        android:paddingStart="45dp"
+        android:paddingStart="35dp"
         android:paddingTop="10dp"
-        android:paddingEnd="30dp"
-        android:text="Уже 4 часа играем, \nне оторваться! \nНе принесёте мне\n капучино?"
+        android:paddingEnd="20dp"
+        android:paddingBottom="30dp"
+        android:text="Да, та девочка на ресепшене\n так перепугалась... \nс ней все в порядке?"
         android:textColor="@color/colorNameApp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,RtlSymmetry" />

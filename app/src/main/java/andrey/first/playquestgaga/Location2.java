@@ -40,6 +40,7 @@ public class Location2 extends AppCompatActivity {
 
         Button location2_1 = findViewById(R.id.location2_1);
         Button location2_2 = findViewById(R.id.location2_2);
+        Button location2_3 = findViewById(R.id.location2_3);
         Button location3 = findViewById(R.id.location3);
 
         location2_1.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,13 @@ public class Location2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 exitFromLocation(Location2_2.class);
+            }
+        });
+
+        location2_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exitFromLocation(Location2_3.class);
             }
         });
 

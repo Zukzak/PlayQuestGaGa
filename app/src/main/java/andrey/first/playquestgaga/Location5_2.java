@@ -19,6 +19,8 @@ public class Location5_2 extends AppCompatActivity {
     boolean offVolume;
     boolean radioAnother;
     boolean sashadrus;
+    boolean drus;
+    boolean crime;
     int coffee;
     int game;
 
@@ -37,6 +39,8 @@ public class Location5_2 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         sashadrus = save.getBoolean("sashadrus", false);
+        drus = save.getBoolean("drus", false);
+        crime = save.getBoolean("crime", false);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 15);
         editor.apply();
@@ -63,10 +67,20 @@ public class Location5_2 extends AppCompatActivity {
         location5_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(sashadrus) {
-                    Toast.makeText(getApplication(), "Похоже они обсуждают уже что то другое...", Toast.LENGTH_SHORT).show();
-                } else {
-                    exitFromLocation(Location5_3.class);
+                if(crime){
+                    if (drus) {
+                        Toast.makeText(getApplication(), "Похоже новость об игре его расстроила...", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        exitFromLocation(Location5_7.class);
+                    }
+                }
+                else {
+                    if (sashadrus) {
+                        Toast.makeText(getApplication(), "Похоже они обсуждают уже что-то другое...", Toast.LENGTH_SHORT).show();
+                    } else {
+                        exitFromLocation(Location5_3.class);
+                    }
                 }
             }
         });

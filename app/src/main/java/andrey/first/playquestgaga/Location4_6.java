@@ -43,7 +43,7 @@ public class Location4_6 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         final SharedPreferences.Editor editor = save.edit();
-        editor.putInt("location", 12);
+        editor.putInt("location", 26);
         editor.apply();
 
 

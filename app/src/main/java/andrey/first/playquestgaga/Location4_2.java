@@ -19,6 +19,9 @@ public class Location4_2 extends AppCompatActivity {
     boolean offVolume;
     boolean radioAnother;
     boolean alone;
+    boolean alone2;
+    boolean alone3;
+    boolean crime;
     int coffee;
     int game;
 
@@ -37,6 +40,9 @@ public class Location4_2 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         alone = save.getBoolean("alone", false);
+        alone2 = save.getBoolean("alone2", false);
+        alone3 = save.getBoolean("alone3", false);
+        crime = save.getBoolean("crime", crime);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 11);
         editor.apply();
@@ -80,10 +86,25 @@ public class Location4_2 extends AppCompatActivity {
         location4_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (alone) {
-                    Toast.makeText(getApplication(), "Пока, наверное, лучше его не беспокоить...", Toast.LENGTH_SHORT).show();
-                } else {
-                    exitFromLocation(Location4_3.class);
+                if (crime){
+                    if (alone3) {
+                        Toast.makeText(getApplication(), "Какао, мое какао...", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (alone2 & !(coffee == 3)) {
+                            Toast.makeText(getApplication(), "Когда же мне уже сделают какао....", Toast.LENGTH_SHORT).show();
+                        } else if (alone2 & (coffee == 3)) {
+                            exitFromLocation(Location4_7.class);
+                        } else {
+                            exitFromLocation(Location4_6.class);
+                        }
+                    }
+                }else {
+                    if (alone) {
+                        Toast.makeText(getApplication(), "Пока, наверное, лучше его не беспокоить...", Toast.LENGTH_SHORT).show();
+                    } else {
+                        exitFromLocation(Location4_3.class);
+                    }
                 }
             }
         });

@@ -49,19 +49,18 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-
-        android:layout_marginTop="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
         android:background="@drawable/text_background3"
         android:fontFamily="@font/rex_bold"
         android:paddingStart="30dp"
         android:paddingTop="10dp"
         android:paddingEnd="30dp"
-        android:text="Такая интересная игра,\n не оторваться... \n поможете? Девушка хочет \n капучино..."
+        android:paddingBottom="30dp"
+        android:text="Третий дубль подряд!\nВау! Принесёте кофе и\n для нашей подруги?"
         android:textColor="@color/colorNameApp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,RtlSymmetry" />

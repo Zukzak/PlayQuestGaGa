@@ -81,11 +81,11 @@ public class Location4_1 extends AppCompatActivity {
             public void onClick(View view) {
                if (crime){
                    if (alone3) {
-                       Toast.makeText(getApplication(), "Какао, мое какао...", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getApplication(), "Теперь он похоже разговаривает с какао...", Toast.LENGTH_SHORT).show();
                    }
                    else {
                        if (alone2 & !(coffee == 3)) {
-                           Toast.makeText(getApplication(), "Когда же мне уже сделают какао....", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(getApplication(), "Какой-то он злой и все смотрит на часы...", Toast.LENGTH_SHORT).show();
                        } else if (alone2 & (coffee == 3)) {
                            exitFromLocation(Location4_7.class);
                        } else {

@@ -14,59 +14,74 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Location4_7 extends AppCompatActivity {
+public class Location5_7 extends AppCompatActivity {
 
     boolean shouldPlay = false;
     boolean offVolume;
     boolean radioAnother;
-    boolean oneQuestion;
-    boolean twoQuestion;
     int coffee;
     int game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.location4_7);
+        setContentView(R.layout.location5_7);
         //Разворачивает приложение на весь экран
         Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Метод для сохранения состояний
-        SharedPreferences save = getSharedPreferences("save", MODE_PRIVATE);
+        SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
         offVolume = save.getBoolean("offVolume", offVolume);
         radioAnother = save.getBoolean("radio", radioAnother);
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         final SharedPreferences.Editor editor = save.edit();
-        editor.putInt("location", 27);
+        editor.putInt("location", 29);
         editor.apply();
 
 
         final Button answer1 = findViewById(R.id.answer1);
 
         answer1.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View view) {
-                        editor.putBoolean("alone3", true);
-                        editor.apply();
-                        exitFromLocation();
-            }
-        });
-    }
+                       @SuppressLint("SetTextI18n")
+                       @Override
+                       public void onClick(View view) {
+                           final View main = findViewById(R.id.main);
+                           main.setBackgroundResource(R.drawable.location5_7_1);
+                           final TextView text = findViewById(R.id.textView);
+                           text.setVisibility(View.VISIBLE);
+                           answer1.setText("Кто-то пролил какао на игру...");
+                           answer1.setOnClickListener(new View.OnClickListener() {
+                               @Override
+                               public void onClick(View view) {
+                                   main.setBackgroundResource(R.drawable.location5_7_2);
+                                   text.setText("Ужасно! Я лишь могу\n сказать, что недавно \n девушка проходила \n в сторону ресепшена...");
+                                   answer1.setText("Благодарю, это мне поможет!");
+                                   answer1.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View view) {
+                                                   editor.putBoolean("drus", true);
+                                                   editor.apply();
+                                                   exitFromLocation();
+                                       }
+                                   });
+                               }
+                           });
+                       }
+                   });
+       }
 
-
-    public void exitFromLocation() {
-        try {
-            Intent intent = new Intent(Location4_7.this, Location4_1.class);
-            startActivity(intent);
-            shouldPlay = true;
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            finish();
-        } catch (Exception ignored) {
-        }
-    }
+       public void exitFromLocation() {
+           try {
+               Intent intent = new Intent(Location5_7.this, Location5_2.class);
+               startActivity(intent);
+               shouldPlay = true;
+               overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+               finish();
+           } catch (Exception ignored) {
+           }
+       }
 
     @Override
     protected void onPause() {
@@ -100,7 +115,7 @@ public class Location4_7 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         try {
-            Intent intent = new Intent(Location4_7.this, MainActivity.class);
+            Intent intent = new Intent(Location5_7.this, MainActivity.class);
             shouldPlay=true;
             startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

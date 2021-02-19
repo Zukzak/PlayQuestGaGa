@@ -91,6 +91,10 @@ public class MainActivity extends AppCompatActivity {
                        case 23: exitFromLocation(Location6_3.class);break;
                        case 24: exitFromLocation(Location4_5.class);break;
                        case 25: exitFromLocation(Location7.class);break;
+                       case 26: exitFromLocation(Location4_6.class);break;
+                       case 27: exitFromLocation(Location4_7.class);break;
+                       case 28: exitFromLocation(Location5_6.class);break;
+                       case 29: exitFromLocation(Location5_7.class);break;
                    }
                    }
 
@@ -113,7 +117,11 @@ public class MainActivity extends AppCompatActivity {
                     editor.putInt("game", 0);
                     editor.putInt("cup", 0);
                     editor.putBoolean("alone", false);
+                    editor.putBoolean("alone2", false);
+                    editor.putBoolean("alone3", false);
                     editor.putBoolean("group", false);
+                    editor.putBoolean("sasha", false);
+                    editor.putBoolean("drus", false);
                     editor.putBoolean("sashadrus", false);
                     editor.putBoolean("answer", false);
                     editor.putBoolean("crime", false);

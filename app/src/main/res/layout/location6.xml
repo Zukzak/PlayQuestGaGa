@@ -29,10 +29,10 @@
 
     <Button
         android:id="@+id/location6_2"
-        android:layout_width="75dp"
-        android:layout_height="238dp"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="308dp"
+        android:layout_width="93dp"
+        android:layout_height="291dp"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="276dp"
         android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

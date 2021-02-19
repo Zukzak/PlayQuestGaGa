@@ -57,7 +57,7 @@
         android:paddingStart="30dp"
         android:paddingTop="10dp"
         android:paddingEnd="30dp"
-        android:text="Такая интересная игра,\n не оторваться... \n поможете? Друг хочет \n капучино..."
+        android:text="Друг тоже захотел\n Капучино, а у нас\n как раз аукцион...\n Поможете?"
         android:textColor="@color/colorNameApp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
