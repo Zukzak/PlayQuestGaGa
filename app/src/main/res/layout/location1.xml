@@ -13,14 +13,13 @@
         android:layout_marginStart="107dp"
         android:layout_marginTop="243dp"
         android:layout_marginEnd="166dp"
-        android:layout_marginBottom="282dp"
+        android:layout_marginBottom="163dp"
         android:background="@color/colorTransparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/location9999"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/egg1"
@@ -28,43 +27,37 @@
         android:layout_height="124dp"
         android:layout_marginTop="476dp"
         android:layout_marginEnd="248dp"
-        android:layout_marginBottom="131dp"
+        android:layout_marginBottom="46dp"
         android:background="@color/colorTransparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/location9999"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/location1_2"
         android:layout_width="104dp"
         android:layout_height="176dp"
-        android:layout_marginStart="308dp"
-        android:layout_marginTop="560dp"
         android:alpha="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/location1_1"
-        android:layout_width="94dp"
-        android:layout_height="209dp"
-        android:layout_marginStart="308dp"
-        android:layout_marginTop="359dp"
-        android:layout_marginBottom="198dp"
+        android:layout_width="92dp"
+        android:layout_height="399dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="20dp"
         android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toTopOf="@+id/location1_2"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/location9999"
         android:layout_width="304dp"
         android:layout_height="85dp"
-        android:layout_marginTop="640dp"
         android:layout_marginEnd="108dp"
         android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

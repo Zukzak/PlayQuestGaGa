@@ -69,7 +69,7 @@ public class Location5_1 extends AppCompatActivity {
             public void onClick(View view) {
                if(crime){
                    if (sasha) {
-                       Toast.makeText(getApplication(), "Все еще бормочит про волосы...", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getApplication(), "Все еще бормочет про волосы...", Toast.LENGTH_SHORT).show();
                    }
                    else {
                        exitFromLocation(Location5_6.class);

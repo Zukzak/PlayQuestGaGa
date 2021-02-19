@@ -345,7 +345,7 @@ public class Location4_3 extends AppCompatActivity {
                                                        setContentView(R.layout.location4_3_5);
                                                        Button cont = findViewById(R.id.cont);
                                                        Toast toast1 = Toast.makeText(Location4_3.this, "Игроластик", Toast.LENGTH_LONG);
-                                                       toast1.setGravity(Gravity.BOTTOM, 0, 0);
+                                                       toast1.setGravity(Gravity.CENTER, 0, 0);
                                                        //Создаем разметку для заполнения ее изображением:
                                                        LinearLayout linearLayout = (LinearLayout) toast1.getView();
                                                        //Создаем в теле Toast объект типа ImageView:

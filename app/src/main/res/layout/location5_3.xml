@@ -38,8 +38,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="132dp"
+
+        android:layout_marginTop="128dp"
         android:background="@drawable/text_background2"
         android:fontFamily="@font/rex_bold"
         android:paddingStart="10dp"
@@ -48,6 +48,8 @@
         android:text="Создадим игру и будем\n продавать коллегам!"
         android:textColor="@color/colorNameApp"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,RtlSymmetry" />

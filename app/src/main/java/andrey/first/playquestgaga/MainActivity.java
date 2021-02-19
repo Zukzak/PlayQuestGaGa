@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                        case 27: exitFromLocation(Location4_7.class);break;
                        case 28: exitFromLocation(Location5_6.class);break;
                        case 29: exitFromLocation(Location5_7.class);break;
+                       case 30: exitFromLocation(Location6_4.class);break;
                    }
                    }
 

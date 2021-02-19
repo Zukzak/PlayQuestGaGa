@@ -13,18 +13,21 @@
         android:layout_height="154dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="268dp"
+        android:layout_marginBottom="280dp"
         android:background="@color/colorTransparent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/location3"
+        app:layout_constraintStart_toStartOf="@+id/location2_3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/location2_2"
         android:layout_width="93dp"
         android:layout_height="218dp"
-        android:layout_marginStart="316dp"
         android:layout_marginTop="256dp"
+        android:layout_marginBottom="228dp"
         android:alpha="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/location3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -32,7 +35,9 @@
         android:layout_width="108dp"
         android:layout_height="174dp"
         android:layout_marginTop="276dp"
+        android:layout_marginBottom="252dp"
         android:alpha="0"
+        app:layout_constraintBottom_toTopOf="@+id/location3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,8 +45,9 @@
         android:id="@+id/location3"
         android:layout_width="match_parent"
         android:layout_height="121dp"
-        android:layout_marginTop="609dp"
         android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

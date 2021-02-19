@@ -9,11 +9,12 @@
 
     <Button
         android:id="@+id/location3"
-        android:layout_width="114dp"
-        android:layout_height="209dp"
+        android:layout_width="120dp"
+        android:layout_height="267dp"
 
         android:layout_marginTop="180dp"
         android:background="@color/colorTransparent"
+        app:layout_constraintBottom_toTopOf="@+id/location5_4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,27 +22,28 @@
         android:id="@+id/location5_4"
         android:layout_width="104dp"
         android:layout_height="277dp"
-        android:layout_marginTop="452dp"
         android:background="@color/colorTransparent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/location5_3"
         android:layout_width="227dp"
         android:layout_height="238dp"
-        android:layout_marginStart="188dp"
         android:layout_marginTop="300dp"
+        android:layout_marginBottom="27dp"
         android:alpha="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/location6"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/location6"
-        android:layout_width="305dp"
-        android:layout_height="103dp"
-        android:layout_marginTop="628dp"
+        android:layout_width="301dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="6dp"
         android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/location5_4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

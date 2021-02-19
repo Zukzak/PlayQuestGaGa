@@ -21,9 +21,6 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
 
-
-
-
             songListGaga.add(R.raw.gaga1);
             songListGaga.add(R.raw.gaga2);
             songListGaga.add(R.raw.gaga3);
@@ -32,8 +29,7 @@ public class MyService extends Service {
 
             player = MediaPlayer.create(this,songListGaga.get(random.nextInt(6)));
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-
-        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 nextSong();

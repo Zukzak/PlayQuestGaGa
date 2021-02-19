@@ -52,7 +52,7 @@ public class Location9999 extends AppCompatActivity {
               if(!speed) {
                   speed=true;
                   Toast toast1 = Toast.makeText(Location9999.this, "Скорострел", Toast.LENGTH_LONG);
-                  toast1.setGravity(Gravity.BOTTOM, 0, 0);
+                  toast1.setGravity(Gravity.CENTER, 0, 0);
                   //Создаем разметку для заполнения ее изображением:
                   LinearLayout linearLayout = (LinearLayout) toast1.getView();
                   //Создаем в теле Toast объект типа ImageView:

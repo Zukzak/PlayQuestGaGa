@@ -19,6 +19,10 @@ public class Location6 extends AppCompatActivity {
     boolean offVolume;
     boolean radioAnother;
     boolean group;
+    boolean group2;
+    boolean group3;
+    boolean crime;
+    boolean drus;
     boolean answer;
     int coffee;
     int game;
@@ -39,7 +43,11 @@ public class Location6 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         cup = save.getInt("game", cup);
+        drus = save.getBoolean("drus", false);
+        crime = save.getBoolean("crime", false);
         group = save.getBoolean("group", false);
+        group2 = save.getBoolean("group2", false);
+        group3 = save.getBoolean("group3", false);
         answer = save.getBoolean("answer", false);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 18);
@@ -67,14 +75,24 @@ public class Location6 extends AppCompatActivity {
         location6_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if (group) {
-                   Toast.makeText(getApplication(), "Пусть уже доиграют свою интересную игру...", Toast.LENGTH_SHORT).show();
-               } else {
-                   if(!answer) {
-                       exitFromLocation(Location6_1.class);
-                   } else {
-                       exitFromLocation(Location6_1_1.class);
-                   }
+                if(crime){
+                    if (group3) {
+                        Toast.makeText(getApplication(), "Похоже это все что они знают...", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                            exitFromLocation(Location6_4.class);
+                        }
+                }
+                else {
+                    if (group) {
+                        Toast.makeText(getApplication(), "Пусть уже доиграют свою интересную игру...", Toast.LENGTH_SHORT).show();
+                    } else {
+                        if (!answer) {
+                            exitFromLocation(Location6_1.class);
+                        } else {
+                            exitFromLocation(Location6_1_1.class);
+                        }
+                    }
                 }
             }
         });

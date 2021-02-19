@@ -100,7 +100,7 @@ public class Location5_3 extends AppCompatActivity {
                            editor.putBoolean("bizenis", true);
                            editor.apply();
                            Toast toast1 = Toast.makeText(Location5_3.this, "Бизенисмен", Toast.LENGTH_LONG);
-                           toast1.setGravity(Gravity.BOTTOM, 0, 0);
+                           toast1.setGravity(Gravity.CENTER, 0, 0);
                            //Создаем разметку для заполнения ее изображением:
                            LinearLayout linearLayout = (LinearLayout) toast1.getView();
                            //Создаем в теле Toast объект типа ImageView:
