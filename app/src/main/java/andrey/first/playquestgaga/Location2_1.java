@@ -113,7 +113,7 @@ public class Location2_1 extends AppCompatActivity {
                         cofemaniac=true;
                         editor.putBoolean("cofemaniac", true);
                         Toast toast1 = Toast.makeText(Location2_1.this, "Кофенатор", Toast.LENGTH_LONG);
-                        toast1.setGravity(Gravity.BOTTOM, 0, 0);
+                        toast1.setGravity(Gravity.CENTER, 0, 0);
                         //Создаем разметку для заполнения ее изображением:
                         LinearLayout linearLayout = (LinearLayout) toast1.getView();
                         //Создаем в теле Toast объект типа ImageView:
@@ -150,7 +150,7 @@ public class Location2_1 extends AppCompatActivity {
                         cofemaniac=true;
                         editor.putBoolean("cofemaniac", true);
                         Toast toast1 = Toast.makeText(Location2_1.this, "Кофенатор", Toast.LENGTH_LONG);
-                        toast1.setGravity(Gravity.BOTTOM, 0, 0);
+                        toast1.setGravity(Gravity.CENTER, 0, 0);
                         //Создаем разметку для заполнения ее изображением:
                         LinearLayout linearLayout = (LinearLayout) toast1.getView();
                         //Создаем в теле Toast объект типа ImageView:

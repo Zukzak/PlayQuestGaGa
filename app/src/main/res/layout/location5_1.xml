@@ -20,6 +20,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/egg6"
+        android:layout_width="119dp"
+        android:layout_height="161dp"
+        android:background="@color/colorTransparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/location6"
         android:layout_width="116dp"
         android:layout_height="286dp"

@@ -85,7 +85,7 @@ public class Location4_1 extends AppCompatActivity {
                    }
                    else {
                        if (alone2 & !(coffee == 3)) {
-                           Toast.makeText(getApplication(), "Какой-то он злой и все смотрит на часы...", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(getApplication(), "Какой-то он злой, похоже все ждет какао...", Toast.LENGTH_SHORT).show();
                        } else if (alone2 & (coffee == 3)) {
                            exitFromLocation(Location4_7.class);
                        } else {

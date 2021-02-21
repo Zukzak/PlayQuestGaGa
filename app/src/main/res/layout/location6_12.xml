@@ -57,7 +57,7 @@
         android:paddingTop="10dp"
         android:paddingEnd="30dp"
         android:paddingBottom="30dp"
-        android:text="Третий дубль подряд!\nВау! Принесёте кофе и\n для нашей подруги?"
+        android:text=" Третий дубль подряд!\n Вау! Принесёте еще\n капучино нашей подруге?"
         android:textColor="@color/colorNameApp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

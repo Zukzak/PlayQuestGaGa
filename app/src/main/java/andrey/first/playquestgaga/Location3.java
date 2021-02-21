@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,6 +42,22 @@ public class Location3 extends AppCompatActivity {
         Button location5_1 = findViewById(R.id.location5_1);
         Button location4 = findViewById(R.id.location4);
         Button location2 = findViewById(R.id.location2);
+        Button egg4 = findViewById(R.id.egg4);
+        Button egg5 = findViewById(R.id.egg5);
+
+        egg4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Опять я не взял с собой мелочи!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        egg5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Что дальше?! Самокат в тайной комнате?!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         location5_1.setOnClickListener(new View.OnClickListener() {

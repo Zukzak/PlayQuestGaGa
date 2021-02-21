@@ -5,36 +5,36 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 
 import androidx.fragment.app.DialogFragment;
 
-public class CustomDialogFragment extends DialogFragment {
+public class CustomDialogFragment extends DialogFragment implements View.OnClickListener {
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        String title = "Уже покидаете нас?";
-        //String message = "Выбери пищу";
-        String button1String = "Да";
-        String button2String = "Нет";
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.dialognewgame, null);
+        v.findViewById(R.id.btnYes).setOnClickListener(this);
+        v.findViewById(R.id.btnNo).setOnClickListener(this);
+        return v;
+    }
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(title);  // заголовок
-        builder.setPositiveButton(button1String, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
+    public void onClick(View v) {
 
 
-            }
-        });
-        builder.setNegativeButton(button2String, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
-        builder.setCancelable(true);
+        dismiss();
+    }
 
-        return builder.create();
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+    }
+
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
     }
 
 }

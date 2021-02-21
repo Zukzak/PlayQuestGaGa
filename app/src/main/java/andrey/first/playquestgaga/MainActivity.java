@@ -1,12 +1,17 @@
 package andrey.first.playquestgaga;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         location = save.getInt("location",0);
         coffee = save.getInt("coffee",0);
         game = save.getInt("game",0);
+
 
 
          final Button btnProceed = findViewById(R.id.proceed);
@@ -105,35 +111,69 @@ public class MainActivity extends AppCompatActivity {
        }
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View view) {
-                btnProceed.setEnabled(false);
-                btnProceed.setBackgroundResource(R.drawable.button_background_off);
+               if(location==0) {
+                   try {
+                       Intent intent = new Intent(MainActivity.this,Location1.class);
+                       shouldPlay = true;
+                       startActivity(intent);
+                       overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                       finish();
+                   } catch (Exception ignored){
+                   }
+               } else {
+                   final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                   final View inflate = getLayoutInflater().inflate(R.layout.dialognewgame, null);
+                   // задаем иконку
+                   alertDialog.setView(inflate);
+                   // показываем Alert
+                   final AlertDialog ad = alertDialog.show();
+                   Button btnYes = inflate.findViewById(R.id.btnYes);
+                   Button btnNo = inflate.findViewById(R.id.btnNo);
+                   btnYes.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           btnProceed.setEnabled(false);
+                           btnProceed.setBackgroundResource(R.drawable.button_background_off);
+                           ad.dismiss();
+                           try {
+                               SharedPreferences save = getSharedPreferences("save", MODE_PRIVATE);
+                               final SharedPreferences.Editor editor = save.edit();
+                               editor.putInt("location", 0);
+                               editor.putInt("coffee", 0);
+                               editor.putInt("game", 0);
+                               editor.putInt("cup", 0);
+                               editor.putBoolean("alone", false);
+                               editor.putBoolean("alone2", false);
+                               editor.putBoolean("alone3", false);
+                               editor.putBoolean("group", false);
+                               editor.putBoolean("group2", false);
+                               editor.putBoolean("group3", false);
+                               editor.putBoolean("sasha", false);
+                               editor.putBoolean("drus", false);
+                               editor.putBoolean("sashadrus", false);
+                               editor.putBoolean("answer", false);
+                               editor.putBoolean("crime", false);
+                               editor.apply();
+                               Intent intent = new Intent(MainActivity.this, Location1.class);
+                               shouldPlay = true;
+                               startActivity(intent);
+                               overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                               finish();
+                           } catch (Exception ignored) {
+                           }
+                       }
+                   });
 
-                try {
-                    SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
-                    final SharedPreferences.Editor editor = save.edit();
-                    editor.putInt("location", 0);
-                    editor.putInt("coffee", 0);
-                    editor.putInt("game", 0);
-                    editor.putInt("cup", 0);
-                    editor.putBoolean("alone", false);
-                    editor.putBoolean("alone2", false);
-                    editor.putBoolean("alone3", false);
-                    editor.putBoolean("group", false);
-                    editor.putBoolean("sasha", false);
-                    editor.putBoolean("drus", false);
-                    editor.putBoolean("sashadrus", false);
-                    editor.putBoolean("answer", false);
-                    editor.putBoolean("crime", false);
-                    editor.apply();
-                    Intent intent = new Intent(MainActivity.this,Location1.class);
-                    shouldPlay = true;
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                    finish();
-                } catch (Exception ignored){
-                }
+                   btnNo.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           ad.dismiss();
+                       }
+                   });
+               }
             }
         });
 
@@ -174,10 +214,6 @@ public class MainActivity extends AppCompatActivity {
     public void exitFromLocation(Class n) {
         try {
             Intent intent = new Intent(MainActivity.this, n);
-           // intent.putExtra("offVolume", offVolume);
-           // intent.putExtra("radio", radioAnother);
-           // intent.putExtra("coffee", coffee);
-           // intent.putExtra("game", game);
             startActivity(intent);
             shouldPlay = true;
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

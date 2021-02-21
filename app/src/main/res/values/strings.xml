@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PlayQuestGaGa</string>
+    <string name="app_name">PlayQuest</string>
     <string name="proceed">Продолжить</string>
     <string name="play">Играть</string>
     <string name="settings">Настройки</string>
@@ -18,10 +18,13 @@
     <string name="sherlock">Шерлок</string>
     <string name="cofeemaniac">         Гроза\n капучинатора</string>
     <string name="agent">Агент 007</string>
-    <string name="gameMaster">Игромастер</string>
+    <string name="gameMaster">Игроластик</string>
     <string name="kolya">Кто я?</string>
     <string name="speed">Скорострел</string>
     <string name="coffee">Кофенатор</string>
     <string name="bizenismen">Бизенисмен</string>
     <string name="rag">Тряпка</string>
+    <string name="yes">ДА</string>
+    <string name="no">Нет</string>
+    <string name="dialognewgame">Вы уверены?\nВесь прогресс будет утерян!</string>
 </resources>

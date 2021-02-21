@@ -49,6 +49,14 @@ public class Location5_1 extends AppCompatActivity {
         Button location6 = findViewById(R.id.location6);
         Button location5_3 = findViewById(R.id.location5_3);
         Button location5_4 = findViewById(R.id.location5_4);
+        Button egg6 = findViewById(R.id.egg6);
+
+        egg6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Выкинул двадцатку, но так и не понял, что это...", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         location3.setOnClickListener(new View.OnClickListener() {
             @Override

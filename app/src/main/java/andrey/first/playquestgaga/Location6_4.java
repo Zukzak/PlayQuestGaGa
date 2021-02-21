@@ -67,7 +67,7 @@ public class Location6_4 extends AppCompatActivity {
                                @Override
                                public void onClick(View view) {
                                    main.setBackgroundResource(R.drawable.location6_1);
-                                   text.setText("Мы играли!\n Да, никто не уходил!\n Каждый готов подтвердить!");
+                                   text.setText("Мы играли!\n Никто не уходил!\n Каждый готов подтвердить!");
                                    if(drus) {
                                        answer1.setText("Гость видел, \nкак девушка выходила из Зала...");
                                        answer1.setOnClickListener(new View.OnClickListener() {
