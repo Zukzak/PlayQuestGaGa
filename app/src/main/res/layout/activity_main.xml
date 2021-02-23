@@ -17,10 +17,9 @@
 
         <LinearLayout
             android:id="@+id/nameLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:layout_marginStart="7dp"
             android:orientation="vertical"
             android:textColor="@color/colorNameApp"
             tools:ignore="MissingConstraints">
@@ -29,19 +28,25 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingStart="2dp"
                 android:fontFamily="@font/rex_bold"
+                android:gravity="center"
                 android:text="@string/playquest"
                 android:textColor="@color/colorNameApp"
-                android:textSize="40sp" />
+                android:textSize="42sp"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rex_bold"
+                android:gravity="center"
+                android:paddingEnd="1dp"
                 android:text="@string/gaga"
                 android:textColor="@color/colorNameApp"
-                android:textSize="90sp" />
+                android:textSize="97sp"
+                tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,8 +54,8 @@
             android:id="@+id/mainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="70dp"
+            android:gravity="center"
             android:orientation="vertical"
             tools:ignore="MissingConstraints">
 

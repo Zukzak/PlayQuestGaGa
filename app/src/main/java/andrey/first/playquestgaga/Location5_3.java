@@ -6,15 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Location5_3 extends AppCompatActivity {
@@ -97,20 +92,10 @@ public class Location5_3 extends AppCompatActivity {
                        public void onClick(View view) {
                            setContentView(R.layout.location5_3_3);
                            Button cont = findViewById(R.id.cont);
+                           Achieve achive = new Achieve();
+                           achive.achievement("Бизенисмен",getApplicationContext(),R.drawable.bizenis1);
                            editor.putBoolean("bizenis", true);
                            editor.apply();
-                           Toast toast1 = Toast.makeText(Location5_3.this, "Бизенисмен", Toast.LENGTH_LONG);
-                           toast1.setGravity(Gravity.CENTER, 0, 0);
-                           //Создаем разметку для заполнения ее изображением:
-                           LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                           //Создаем в теле Toast объект типа ImageView:
-                           ImageView imageView = new ImageView(Location5_3.this);
-                           //Привязываем к нему изображение:
-                           imageView.setImageResource(R.drawable.bizenis1);
-                           //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                           assert linearLayout != null;
-                           linearLayout.addView(imageView);
-                           toast1.show();
                            cont.setOnClickListener(new View.OnClickListener() {
                                @Override
                                public void onClick(View view) {
@@ -147,6 +132,15 @@ public class Location5_3 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

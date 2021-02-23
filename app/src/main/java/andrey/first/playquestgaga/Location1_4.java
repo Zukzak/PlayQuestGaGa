@@ -82,12 +82,21 @@ public class Location1_4 extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
+
 
     @Override
     protected void onResume() {
-        if(!isMyServiceRunning()&!offVolume&!radioAnother)
+        if(isMyServiceRunning() &!offVolume&!radioAnother)
             startService(new Intent(this, MyService.class));
-        if(!isMyServiceRunning()&!offVolume&radioAnother)
+        if(isMyServiceRunning() &!offVolume&radioAnother)
             startService(new Intent(this, MyService2.class));
         super.onResume();
     }
@@ -96,10 +105,10 @@ public class Location1_4 extends AppCompatActivity {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if ((MyService.class.getName().equals(service.service.getClassName()))&&(MyService2.class.getName().equals(service.service.getClassName()))) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -110,7 +119,7 @@ public class Location1_4 extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
-        } catch (Exception e){
+        } catch (Exception ignored){
         }
     }
 }

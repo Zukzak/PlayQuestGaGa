@@ -103,6 +103,15 @@ public class Location3 extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
+
 
     @Override
     protected void onResume() {

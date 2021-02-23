@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
         android:fontFamily="@font/rex_bold"
-        android:paddingStart="25dp"
         android:paddingTop="10dp"
         android:shadowColor="@color/colorNameApp"
         android:shadowRadius="10"

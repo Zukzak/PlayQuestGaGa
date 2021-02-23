@@ -18,7 +18,6 @@ public class Location1 extends AppCompatActivity {
     boolean shouldPlay = false;
     boolean offVolume;
     boolean radioAnother;
-    boolean speed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +40,6 @@ public class Location1 extends AppCompatActivity {
         Button location1_3 = findViewById(R.id.location1_3);
         Button location9999 = findViewById(R.id.location9999);
         Button egg = findViewById(R.id.egg1);
-
-        Bundle passedDate = getIntent().getExtras();
-        if(passedDate != null) {
-            offVolume = passedDate.getBoolean("offVolume");
-            radioAnother = passedDate.getBoolean("radio");
-            speed = passedDate.getBoolean("speed");
-        }
 
         location1_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +65,8 @@ public class Location1 extends AppCompatActivity {
         location9999.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                editor.putBoolean("speed1", true);
+                editor.apply();
                 exitFromLocation(Location9999.class);
             }
         });
@@ -128,6 +122,14 @@ public class Location1 extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
     @Override
     public void onBackPressed() {
         try {

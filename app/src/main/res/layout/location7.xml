@@ -24,15 +24,34 @@
 
         <Button
             android:id="@+id/answer1"
-            android:layout_width="370dp"
+            android:layout_width="380dp"
             android:layout_height="60dp"
             android:layout_margin="5dp"
+            android:paddingStart="10dp"
             android:background="@drawable/button_pressed"
             android:fontFamily="@font/rex_bold"
-            android:text="Что случилось?!"
+            android:text="Что произошло?"
             android:textColor="@color/colorTextButton"
             android:textSize="25sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,RtlSymmetry" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/text_background2"
+        android:fontFamily="@font/rex_bold"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="30dp"
+        android:text="Кто-то пролил на игру кофе!"
+        android:textColor="@color/colorNameApp"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText,RtlSymmetry" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,26 +18,33 @@ public class Location2 extends AppCompatActivity {
     boolean shouldPlay = false;
     boolean offVolume;
     boolean radioAnother;
+    boolean crime;
     int coffee;
     int game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.location2);
-        //Разворачивает приложение на весь экран
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         //Метод для сохранения состояний
         SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
         offVolume = save.getBoolean("offVolume", offVolume);
         radioAnother = save.getBoolean("radio", radioAnother);
+        crime = save.getBoolean("crime", crime);
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 6);
         editor.apply();
+
+        if(crime){
+            setContentView(R.layout.location21);
+        } else {
+            setContentView(R.layout.location2);
+        }
+        //Разворачивает приложение на весь экран
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         Button location2_1 = findViewById(R.id.location2_1);
         Button location2_2 = findViewById(R.id.location2_2);
@@ -46,21 +54,33 @@ public class Location2 extends AppCompatActivity {
         location2_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitFromLocation(Location2_1.class);
+                if(crime) {
+                    exitFromLocation(Location2_1.class);
+                } else {
+                    exitFromLocation(Location2_1.class);
+                }
             }
         });
 
         location2_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitFromLocation(Location2_2.class);
+              if(crime) {
+                  Toast.makeText(getApplication(), "Наверное, лучше ее сейчас не трогать...", Toast.LENGTH_SHORT).show();
+              } else {
+                  exitFromLocation(Location2_2.class);
+              }
             }
         });
 
         location2_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitFromLocation(Location2_3.class);
+                if (crime) {
+                    exitFromLocation(Location2_4.class);
+                } else {
+                    exitFromLocation(Location2_3.class);
+                }
             }
         });
 
@@ -93,6 +113,14 @@ public class Location2 extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected void onResume() {

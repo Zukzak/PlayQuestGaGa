@@ -39,8 +39,8 @@ public class Location5_1 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         crime = save.getBoolean("crime", crime);
-        sashadrus = save.getBoolean("sashadrus", false);
-        sasha = save.getBoolean("sasha", false);
+        sashadrus = save.getBoolean("sashadrus", sashadrus);
+        sasha = save.getBoolean("sasha", sasha);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 14);
         editor.apply();
@@ -96,13 +96,18 @@ public class Location5_1 extends AppCompatActivity {
         location5_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((coffee==0)&(game==0)) {
-                    Toast.makeText(getApplication(), "Просто за пустым столом сидеть как то скучно", Toast.LENGTH_SHORT).show();
-                } else { if(game==0) {
-                    exitFromLocation(Location5_4.class);
+                if(crime) {
+                    Toast.makeText(getApplication(), "Не время для отдыха, виновник не найден!", Toast.LENGTH_SHORT).show();
                 } else {
-                    exitFromLocation(Location5_5.class);
-                }
+                    if ((coffee == 0) & (game == 0)) {
+                        Toast.makeText(getApplication(), "Просто за пустым столом сидеть как то скучно", Toast.LENGTH_SHORT).show();
+                    } else {
+                        if (game == 0) {
+                            exitFromLocation(Location5_4.class);
+                        } else {
+                            exitFromLocation(Location5_5.class);
+                        }
+                    }
                 }
             }
         });
@@ -128,6 +133,15 @@ public class Location5_1 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

@@ -65,18 +65,8 @@ public class Location6_1_1 extends AppCompatActivity {
                                 if(cup==3){
                                     setContentView(R.layout.location6_1_2);
                                     Button cont = findViewById(R.id.cont);
-                                    Toast toast1 = Toast.makeText(Location6_1_1.this, "Тряпка", Toast.LENGTH_LONG);
-                                    toast1.setGravity(Gravity.CENTER, 0, 0);
-                                    //Создаем разметку для заполнения ее изображением:
-                                    LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                                    //Создаем в теле Toast объект типа ImageView:
-                                    ImageView imageView = new ImageView(Location6_1_1.this);
-                                    //Привязываем к нему изображение:
-                                    imageView.setImageResource(R.drawable.rag1);
-                                    //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                                    assert linearLayout != null;
-                                    linearLayout.addView(imageView);
-                                    toast1.show();
+                                    Achieve achive = new Achieve();
+                                    achive.achievement("Тряпка",getApplicationContext(),R.drawable.rag1);
                                     cont.setOnClickListener(new View.OnClickListener() {
                                         @SuppressLint("SetTextI18n")
                                         @Override
@@ -138,6 +128,15 @@ public class Location6_1_1 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

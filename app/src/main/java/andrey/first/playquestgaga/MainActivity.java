@@ -1,17 +1,14 @@
 package andrey.first.playquestgaga;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     boolean shouldPlay = false;
     boolean offVolume;
     boolean radioAnother;
-    boolean speed;
     int location;
     int coffee;
     int game;
@@ -102,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                        case 28: exitFromLocation(Location5_6.class);break;
                        case 29: exitFromLocation(Location5_7.class);break;
                        case 30: exitFromLocation(Location6_4.class);break;
+                       case 31: exitFromLocation(Location2_3.class);break;
+                       case 32: exitFromLocation(Location2_4.class);break;
                    }
                    }
 
@@ -115,14 +113,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                if(location==0) {
-                   try {
-                       Intent intent = new Intent(MainActivity.this,Location1.class);
-                       shouldPlay = true;
-                       startActivity(intent);
-                       overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                       finish();
-                   } catch (Exception ignored){
-                   }
+                   newGame();
                } else {
                    final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
                    final View inflate = getLayoutInflater().inflate(R.layout.dialognewgame, null);
@@ -138,32 +129,7 @@ public class MainActivity extends AppCompatActivity {
                            btnProceed.setEnabled(false);
                            btnProceed.setBackgroundResource(R.drawable.button_background_off);
                            ad.dismiss();
-                           try {
-                               SharedPreferences save = getSharedPreferences("save", MODE_PRIVATE);
-                               final SharedPreferences.Editor editor = save.edit();
-                               editor.putInt("location", 0);
-                               editor.putInt("coffee", 0);
-                               editor.putInt("game", 0);
-                               editor.putInt("cup", 0);
-                               editor.putBoolean("alone", false);
-                               editor.putBoolean("alone2", false);
-                               editor.putBoolean("alone3", false);
-                               editor.putBoolean("group", false);
-                               editor.putBoolean("group2", false);
-                               editor.putBoolean("group3", false);
-                               editor.putBoolean("sasha", false);
-                               editor.putBoolean("drus", false);
-                               editor.putBoolean("sashadrus", false);
-                               editor.putBoolean("answer", false);
-                               editor.putBoolean("crime", false);
-                               editor.apply();
-                               Intent intent = new Intent(MainActivity.this, Location1.class);
-                               shouldPlay = true;
-                               startActivity(intent);
-                               overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                               finish();
-                           } catch (Exception ignored) {
-                           }
+                           newGame();
                        }
                    });
 
@@ -222,12 +188,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void newGame() {
+        try {
+            SharedPreferences save = getSharedPreferences("save", MODE_PRIVATE);
+            final SharedPreferences.Editor editor = save.edit();
+            editor.putInt("location", 0);
+            editor.putInt("coffee", 0);
+            editor.putInt("game", 0);
+            editor.putInt("cup", 0);
+            editor.putBoolean("alone", false);
+            editor.putBoolean("alone2", false);
+            editor.putBoolean("alone3", false);
+            editor.putBoolean("group", false);
+            editor.putBoolean("group2", false);
+            editor.putBoolean("group3", false);
+            editor.putBoolean("sasha", false);
+            editor.putBoolean("drus", false);
+            editor.putBoolean("sashadrus", false);
+            editor.putBoolean("answer", false);
+            editor.putBoolean("crime", false);
+            editor.apply();
+            Intent intent = new Intent(MainActivity.this, Location1.class);
+            shouldPlay = true;
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            finish();
+        } catch (Exception ignored) {
+        }
+    }
+
     @Override
     protected void onPause() {
         if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
             stopService(new Intent(this, MyService.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

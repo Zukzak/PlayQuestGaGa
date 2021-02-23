@@ -122,6 +122,15 @@ public class Location1_2 extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
+
+    @Override
     public void onBackPressed() {
         try {
             Intent intent = new Intent(Location1_2.this, MainActivity.class);

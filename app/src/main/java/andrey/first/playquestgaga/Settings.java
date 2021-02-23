@@ -13,10 +13,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
 import android.widget.Switch;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Settings extends AppCompatActivity {
@@ -42,7 +40,6 @@ public class Settings extends AppCompatActivity {
         RadioButton radioGaga = findViewById(R.id.radioGaga);
         RadioButton radioBirusa = findViewById(R.id.radioBirusa);
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
-       final int selectRadio = radioGroup.getCheckedRadioButtonId();
         //Метод для сохранения состояний
         SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
         final SharedPreferences.Editor editor = save.edit();
@@ -86,14 +83,18 @@ public class Settings extends AppCompatActivity {
                         RadioButton rb = group.findViewById(selectRadio);
                         switch (rb.getId()) {
                             case R.id.radioGaga: {
-                                stopService(new Intent(Settings.this, MyService2.class));
-                                startService(new Intent(Settings.this, MyService.class));
+                                if (!offVolume) {
+                                    stopService(new Intent(Settings.this, MyService2.class));
+                                    startService(new Intent(Settings.this, MyService.class));
+                                }
                                 radioAnother=false;
                             }
                             break;
                             case R.id.radioBirusa: {
-                                stopService(new Intent(Settings.this, MyService.class));
-                                startService(new Intent(Settings.this, MyService2.class));
+                                if (!offVolume) {
+                                    stopService(new Intent(Settings.this, MyService.class));
+                                    startService(new Intent(Settings.this, MyService2.class));
+                                }
                                 radioAnother=true;
                             }
                             break;
@@ -114,7 +115,7 @@ public class Settings extends AppCompatActivity {
                     shouldPlay = true;
                     overridePendingTransition(R.anim.right_out, R.anim.left_in);
                     finish();
-                } catch (Exception e){
+                } catch (Exception ignored){
                 }
 
             }
@@ -132,10 +133,19 @@ public class Settings extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+        stopService(new Intent(this, MyService2.class));
+        stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
+
+    @Override
     protected void onResume() {
-        if(!isMyServiceRunning()&!offVolume&!radioAnother)
+        if(isMyServiceRunning() &!offVolume&!radioAnother)
             startService(new Intent(this, MyService.class));
-        if(!isMyServiceRunning()&!offVolume&radioAnother)
+        if(isMyServiceRunning() &!offVolume&radioAnother)
             startService(new Intent(this, MyService2.class));
         super.onResume();
     }
@@ -145,10 +155,10 @@ public class Settings extends AppCompatActivity {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if ((MyService.class.getName().equals(service.service.getClassName()))&&(MyService2.class.getName().equals(service.service.getClassName()))) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     @Override
@@ -161,7 +171,7 @@ public class Settings extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.right_out, R.anim.left_in);
             finish();
-        } catch (Exception e){
+        } catch (Exception ignored){
         }
     }
 }

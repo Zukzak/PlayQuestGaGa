@@ -21,6 +21,7 @@ public class Location9999 extends AppCompatActivity {
     boolean shouldPlay = false;
     boolean offVolume;
     boolean radioAnother;
+    boolean speed1;
     boolean speed;
 
     @Override
@@ -36,11 +37,10 @@ public class Location9999 extends AppCompatActivity {
         SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
         offVolume = save.getBoolean("offVolume", offVolume);
         radioAnother = save.getBoolean("radio", radioAnother);
+        speed1 = save.getBoolean("speed1", speed1);
         speed = save.getBoolean("speed", speed);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 0);
-        editor.putInt("coffee", 0);
-        editor.putInt("game", 0);
         editor.apply();
 
         cont.setOnClickListener(new View.OnClickListener() {
@@ -49,22 +49,11 @@ public class Location9999 extends AppCompatActivity {
                 setContentView(R.layout.location9999_1);
                 Button cont = findViewById(R.id.cont);
 
-              if(!speed) {
-                  speed=true;
-                  Toast toast1 = Toast.makeText(Location9999.this, "Скорострел", Toast.LENGTH_LONG);
-                  toast1.setGravity(Gravity.CENTER, 0, 0);
-                  //Создаем разметку для заполнения ее изображением:
-                  LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                  //Создаем в теле Toast объект типа ImageView:
-                  ImageView imageView = new ImageView(Location9999.this);
-                  //Привязываем к нему изображение:
-                  imageView.setImageResource(R.drawable.speed1);
-                  //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                  assert linearLayout != null;
-                  linearLayout.addView(imageView);
-                  toast1.show();
+              if(speed1&!speed) {
+                  Achieve achive = new Achieve();
+                  achive.achievement("Скорострел",getApplicationContext(),R.drawable.speed1);
               }
-              editor.putBoolean("speed", speed);
+              editor.putBoolean("speed", true);
               editor.apply();
                 cont.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -95,6 +84,15 @@ public class Location9999 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

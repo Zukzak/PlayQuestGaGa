@@ -91,6 +91,15 @@ public class Location4_6 extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
+    }
+
+    @Override
     protected void onPause() {
         if(!shouldPlay) {
             stopService(new Intent(this, MyService.class));

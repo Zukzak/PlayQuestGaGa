@@ -36,17 +36,36 @@ public class Location2_3 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         final SharedPreferences.Editor editor = save.edit();
-        editor.putInt("location", 8);
+        editor.putInt("location", 31);
         editor.apply();
 
         final Button coffee = findViewById(R.id.coffee);
         final Button game = findViewById(R.id.game);
         final Button back = findViewById(R.id.back);
+        final Button exit = findViewById(R.id.exit);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitFromLocation();
+                exitFromLocation(Location2.class);
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView text = findViewById(R.id.textView);
+                text.setText("Карточка остается с вами \n не забудте ее зарегистрировать!\n Ждем вас в гости снова!");
+                text.setVisibility(View.VISIBLE);
+                exit.setVisibility(View.INVISIBLE);
+                game.setVisibility(View.INVISIBLE);
+                coffee.setVisibility(View.INVISIBLE);
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        exitFromLocation(Location9999.class);
+                    }
+                });
             }
         });
 
@@ -56,12 +75,13 @@ public class Location2_3 extends AppCompatActivity {
                 TextView text = findViewById(R.id.textView);
                 text.setText("Нам только сегодня\n привезли новые зерна,\n как раз собираем мнения!");
                 text.setVisibility(View.VISIBLE);
+                exit.setVisibility(View.INVISIBLE);
                 game.setVisibility(View.INVISIBLE);
                 coffee.setVisibility(View.INVISIBLE);
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        exitFromLocation();
+                        exitFromLocation(Location2.class);
                     }
                 });
             }
@@ -73,27 +93,37 @@ public class Location2_3 extends AppCompatActivity {
                 TextView text = findViewById(R.id.textView);
                 text.setText("Могу посоветовать Таймлайн!");
                 text.setVisibility(View.VISIBLE);
+                exit.setVisibility(View.INVISIBLE);
                 game.setVisibility(View.INVISIBLE);
                 coffee.setVisibility(View.INVISIBLE);
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        exitFromLocation();
+                        exitFromLocation(Location2.class);
                     }
                 });
             }
         });
     }
 
-    public void exitFromLocation() {
+    public void exitFromLocation(Class n) {
         try {
-            Intent intent = new Intent(Location2_3.this, Location2.class);
+            Intent intent = new Intent(Location2_3.this, n);
             startActivity(intent);
             shouldPlay = true;
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
         } catch (Exception ignored) {
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
     @Override

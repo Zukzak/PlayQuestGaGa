@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,6 +60,7 @@ public class Location2_2 extends AppCompatActivity {
            party.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
+                   Toast.makeText(getApplication(), "Надеюсь будет весело!", Toast.LENGTH_SHORT).show();
                    exitFromLocation();
                    editor.putInt("game", 1);
                    editor.apply();
@@ -75,6 +77,7 @@ public class Location2_2 extends AppCompatActivity {
             classic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Toast.makeText(getApplication(), "Классика, что еще нужно!", Toast.LENGTH_SHORT).show();
                     exitFromLocation();
                     editor.putInt("game", 2);
                     editor.apply();
@@ -92,6 +95,7 @@ public class Location2_2 extends AppCompatActivity {
             hard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Toast.makeText(getApplication(), "Попробую разобраться в правилах!", Toast.LENGTH_SHORT).show();
                     exitFromLocation();
                     editor.putInt("game", 3);
                     editor.apply();
@@ -111,6 +115,15 @@ public class Location2_2 extends AppCompatActivity {
             finish();
         } catch (Exception ignored) {
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
     @Override

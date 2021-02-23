@@ -27,7 +27,7 @@ public class MyService extends Service {
             songListGaga.add(R.raw.gaga4);
             songListGaga.add(R.raw.gaga5);
 
-            player = MediaPlayer.create(this,songListGaga.get(random.nextInt(6)));
+            player = MediaPlayer.create(this,songListGaga.get(random.nextInt(songListGaga.size())));
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override

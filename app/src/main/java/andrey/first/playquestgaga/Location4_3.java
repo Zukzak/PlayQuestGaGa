@@ -23,7 +23,6 @@ public class Location4_3 extends AppCompatActivity {
     boolean offVolume;
     boolean radioAnother;
     boolean oneQuestion;
-    boolean twoQuestion;
     int coffee;
     int game;
 
@@ -341,21 +340,10 @@ public class Location4_3 extends AppCompatActivity {
                                                    @SuppressLint("SetTextI18n")
                                                    @Override
                                                    public void onClick(View view) {
-                                                       twoQuestion =true;
                                                        setContentView(R.layout.location4_3_5);
                                                        Button cont = findViewById(R.id.cont);
-                                                       Toast toast1 = Toast.makeText(Location4_3.this, "Игроластик", Toast.LENGTH_LONG);
-                                                       toast1.setGravity(Gravity.CENTER, 0, 0);
-                                                       //Создаем разметку для заполнения ее изображением:
-                                                       LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                                                       //Создаем в теле Toast объект типа ImageView:
-                                                       ImageView imageView = new ImageView(Location4_3.this);
-                                                       //Привязываем к нему изображение:
-                                                       imageView.setImageResource(R.drawable.gamemaster1);
-                                                       //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                                                       assert linearLayout != null;
-                                                       linearLayout.addView(imageView);
-                                                       toast1.show();
+                                                       Achieve achive = new Achieve();
+                                                       achive.achievement("Игроластик",getApplicationContext(),R.drawable.gamemaster1);
                                                        editor.putBoolean("igrolastik", true);
                                                        editor.apply();
                                                        cont.setOnClickListener(new View.OnClickListener() {
@@ -425,21 +413,10 @@ public class Location4_3 extends AppCompatActivity {
                                                    @SuppressLint("SetTextI18n")
                                                    @Override
                                                    public void onClick(View view) {
-                                                       twoQuestion =true;
                                                        setContentView(R.layout.location4_3_5);
                                                        Button cont = findViewById(R.id.cont);
-                                                       Toast toast1 = Toast.makeText(Location4_3.this, "Игроластик", Toast.LENGTH_LONG);
-                                                       toast1.setGravity(Gravity.CENTER, 0, 0);
-                                                       //Создаем разметку для заполнения ее изображением:
-                                                       LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                                                       //Создаем в теле Toast объект типа ImageView:
-                                                       ImageView imageView = new ImageView(Location4_3.this);
-                                                       //Привязываем к нему изображение:
-                                                       imageView.setImageResource(R.drawable.gamemaster1);
-                                                       //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                                                       assert linearLayout != null;
-                                                       linearLayout.addView(imageView);
-                                                       toast1.show();
+                                                       Achieve achive = new Achieve();
+                                                       achive.achievement("Игроластик",getApplicationContext(),R.drawable.gamemaster1);
                                                        editor.putBoolean("igrolastik", true);
                                                        editor.apply();
                                                        cont.setOnClickListener(new View.OnClickListener() {
@@ -509,21 +486,10 @@ public class Location4_3 extends AppCompatActivity {
                                                    @SuppressLint("SetTextI18n")
                                                    @Override
                                                    public void onClick(View view) {
-                                                       twoQuestion =true;
                                                        setContentView(R.layout.location4_3_5);
                                                        Button cont = findViewById(R.id.cont);
-                                                       Toast toast1 = Toast.makeText(Location4_3.this, "Игроластик", Toast.LENGTH_LONG);
-                                                       toast1.setGravity(Gravity.CENTER, 0, 0);
-                                                       //Создаем разметку для заполнения ее изображением:
-                                                       LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                                                       //Создаем в теле Toast объект типа ImageView:
-                                                       ImageView imageView = new ImageView(Location4_3.this);
-                                                       //Привязываем к нему изображение:
-                                                       imageView.setImageResource(R.drawable.gamemaster1);
-                                                       //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                                                       assert linearLayout != null;
-                                                       linearLayout.addView(imageView);
-                                                       toast1.show();
+                                                       Achieve achive = new Achieve();
+                                                       achive.achievement("Игроластик",getApplicationContext(),R.drawable.gamemaster1);
                                                        editor.putBoolean("igrolastik", true);
                                                        editor.apply();
                                                        cont.setOnClickListener(new View.OnClickListener() {
@@ -776,6 +742,8 @@ public class Location4_3 extends AppCompatActivity {
                 });
         }
 
+
+
     public void exitFromLocation() {
         try {
             Intent intent = new Intent(Location4_3.this, Location4_1.class);
@@ -794,6 +762,15 @@ public class Location4_3 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

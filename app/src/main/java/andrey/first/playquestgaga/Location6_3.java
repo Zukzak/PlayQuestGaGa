@@ -58,18 +58,8 @@ public class Location6_3 extends AppCompatActivity {
              View main = findViewById(R.id.main);
              main.setBackgroundResource(R.drawable.game4);
             if(!kolya) {
-                Toast toast1 = Toast.makeText(Location6_3.this, "Главный герой", Toast.LENGTH_LONG);
-                toast1.setGravity(Gravity.CENTER, 0, 0);
-                //Создаем разметку для заполнения ее изображением:
-                LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                //Создаем в теле Toast объект типа ImageView:
-                ImageView imageView = new ImageView(Location6_3.this);
-                //Привязываем к нему изображение:
-                imageView.setImageResource(R.drawable.kolya1);
-                //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                assert linearLayout != null;
-                linearLayout.addView(imageView);
-                toast1.show();
+                Achieve achive = new Achieve();
+                achive.achievement("Главный герой",getApplicationContext(),R.drawable.kolya1);
                 editor.putBoolean("kolya", true);
                 editor.apply();
             }
@@ -130,6 +120,15 @@ public class Location6_3 extends AppCompatActivity {
         if(isMyServiceRunning() &!offVolume&radioAnother)
             startService(new Intent(this, MyService2.class));
         super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
     private boolean isMyServiceRunning() {

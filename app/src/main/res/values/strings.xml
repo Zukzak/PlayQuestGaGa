@@ -27,4 +27,5 @@
     <string name="yes">ДА</string>
     <string name="no">Нет</string>
     <string name="dialognewgame">Вы уверены?\nВесь прогресс будет утерян!</string>
+    <string name="traitor">Предатель</string>
 </resources>

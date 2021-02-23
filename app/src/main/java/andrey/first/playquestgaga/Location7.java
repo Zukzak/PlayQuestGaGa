@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,13 +39,48 @@ public class Location7 extends AppCompatActivity {
         editor.putInt("location", 25);
         editor.apply();
 
-        Button answer1 = findViewById(R.id.answer1);
+        final Button answer1 = findViewById(R.id.answer1);
 
 
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                exitFromLocation(Location3.class);
+                final View main = findViewById(R.id.main);
+                final TextView text = findViewById(R.id.textView);
+                text.setVisibility(View.VISIBLE);
+                answer1.setText("Что?!");
+                answer1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        main.setBackgroundResource(R.drawable.game_coffee);
+                        text.setVisibility(View.INVISIBLE);
+                        answer1.setText("Какой ужас...");
+                        answer1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                main.setBackgroundResource(R.drawable.location71);
+                                text.setVisibility(View.VISIBLE);
+                                text.setText("Я первой увидела,\n теперь все подумают...");
+                                answer1.setText("Я найду виновника!");
+                                answer1.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        main.setBackgroundResource(R.drawable.location72);
+                                        text.setVisibility(View.VISIBLE);
+                                        text.setText("Правда?\n Вы мой спаситель!");
+                                        answer1.setText("Будте спокойны,\n от меня ничего не ускользнет!");
+                                        answer1.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                exitFromLocation(Location3.class);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             }
         });
 
@@ -59,6 +95,15 @@ public class Location7 extends AppCompatActivity {
             finish();
         } catch (Exception ignored) {
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
     @Override

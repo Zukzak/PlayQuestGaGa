@@ -28,7 +28,7 @@ public class MyService2 extends Service {
             songListBirusa.add(R.raw.birusa4);
             songListBirusa.add(R.raw.birusa5);
 
-            player = MediaPlayer.create(this,songListBirusa.get(random.nextInt(6)));
+            player = MediaPlayer.create(this,songListBirusa.get(random.nextInt(songListBirusa.size())));
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

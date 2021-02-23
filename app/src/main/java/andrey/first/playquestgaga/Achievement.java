@@ -24,7 +24,9 @@ public class Achievement extends AppCompatActivity {
     boolean kolya;
     boolean bizenis;
     boolean cofemaniac;
+    boolean traitor;
     boolean igrolastik;
+    boolean sherlock;
     boolean rag;
 
     @Override
@@ -41,7 +43,9 @@ public class Achievement extends AppCompatActivity {
         speed = save.getBoolean("speed", speed);
         bizenis = save.getBoolean("bizenis", bizenis);
         cofemaniac = save.getBoolean("cofemaniac",cofemaniac);
+        traitor = save.getBoolean("traitor",traitor);
         igrolastik = save.getBoolean("igrolastik", igrolastik);
+        sherlock = save.getBoolean("sherlock", sherlock);
         rag = save.getBoolean("rag", rag);
         kolya = save.getBoolean("kolya", kolya);
 
@@ -120,7 +124,7 @@ public class Achievement extends AppCompatActivity {
             );
         }
 
-        if (speed){
+        if (speed) {
             ImageView speed = findViewById(R.id.speed);
             speed.setBackgroundResource(R.drawable.speed1);
             TextView speedText = findViewById(R.id.textSpeed);
@@ -130,6 +134,36 @@ public class Achievement extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(getApplication(), "Не успел зайти, как сразу выходишь?", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+            );
+        }
+
+            if (sherlock){
+                ImageView sherlock = findViewById(R.id.sherlock);
+                sherlock.setBackgroundResource(R.drawable.sherlock1);
+                TextView sherlockText = findViewById(R.id.textSherlock);
+                sherlockText.setVisibility(View.VISIBLE);
+                sherlock.setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(getApplication(), "От тебя не скроется ни одна деталь!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                );
+        }
+
+        if (traitor){
+            ImageView sherlock = findViewById(R.id.traitor);
+            sherlock.setBackgroundResource(R.drawable.traitor1);
+            TextView sherlockText = findViewById(R.id.textTraitor);
+            sherlockText.setVisibility(View.VISIBLE);
+            sherlock.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(getApplication(), "Иуда восхищается тобой", Toast.LENGTH_SHORT).show();
                         }
                     }
             );
@@ -163,6 +197,15 @@ public class Achievement extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

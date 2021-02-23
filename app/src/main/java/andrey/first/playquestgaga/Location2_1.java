@@ -25,16 +25,12 @@ public class Location2_1 extends AppCompatActivity {
     boolean amer;
     boolean kak;
     boolean cofemaniac;
+    boolean crime;
     int coffee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.location2_1);
-        //Разворачивает приложение на весь экран
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         //Метод для сохранения состояний
         SharedPreferences save = getSharedPreferences("save",MODE_PRIVATE);
         offVolume = save.getBoolean("offVolume", offVolume);
@@ -42,11 +38,21 @@ public class Location2_1 extends AppCompatActivity {
         capuch = save.getBoolean("capuchino",capuch);
         amer = save.getBoolean("amer",amer);
         kak = save.getBoolean("kak",kak);
+        crime = save.getBoolean("crime",crime);
         cofemaniac = save.getBoolean("cofemaniac",cofemaniac);
         coffee = save.getInt("coffee", coffee);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 7);
         editor.apply();
+
+        if(crime){
+            setContentView(R.layout.location2_6);
+        } else {
+            setContentView(R.layout.location2_1);
+        }
+        //Разворачивает приложение на весь экран
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         final Button capuchino = findViewById(R.id.capuchino);
         Button americano = findViewById(R.id.americano);
@@ -69,25 +75,16 @@ public class Location2_1 extends AppCompatActivity {
            capuchino.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
+                   Toast.makeText(getApplication(), "Теплый капучино греет руки!", Toast.LENGTH_SHORT).show();
                    if(!capuch) {
                        capuch=true;
                        editor.putBoolean("capuchino", true);
                    }
                    if(capuch&kak&amer&!cofemaniac) {
+                       Achieve achive = new Achieve();
+                       achive.achievement("Кофенатор",getApplicationContext(),R.drawable.coffeemaniac1);
                        cofemaniac=true;
                        editor.putBoolean("cofemaniac", true);
-                       Toast toast1 = Toast.makeText(Location2_1.this, "Кофенатор", Toast.LENGTH_LONG);
-                       toast1.setGravity(Gravity.CENTER, 0, 0);
-                       //Создаем разметку для заполнения ее изображением:
-                       LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                       //Создаем в теле Toast объект типа ImageView:
-                       ImageView imageView = new ImageView(Location2_1.this);
-                       //Привязываем к нему изображение:
-                       imageView.setImageResource(R.drawable.coffeemaniac1);
-                       //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                       assert linearLayout != null;
-                       linearLayout.addView(imageView);
-                       toast1.show();
                    }
                    exitFromLocation();
                    editor.putInt("coffee", 1);
@@ -105,32 +102,22 @@ public class Location2_1 extends AppCompatActivity {
             americano.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Toast.makeText(getApplication(), "Теплый американо греет руки!", Toast.LENGTH_SHORT).show();
                     if(!amer) {
                         amer=true;
                         editor.putBoolean("amer", true);
                     }
                     if(capuch&kak&amer&!cofemaniac) {
+                        Achieve achive = new Achieve();
+                        achive.achievement("Кофенатор",getApplicationContext(),R.drawable.coffeemaniac1);
                         cofemaniac=true;
                         editor.putBoolean("cofemaniac", true);
-                        Toast toast1 = Toast.makeText(Location2_1.this, "Кофенатор", Toast.LENGTH_LONG);
-                        toast1.setGravity(Gravity.CENTER, 0, 0);
-                        //Создаем разметку для заполнения ее изображением:
-                        LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                        //Создаем в теле Toast объект типа ImageView:
-                        ImageView imageView = new ImageView(Location2_1.this);
-                        //Привязываем к нему изображение:
-                        imageView.setImageResource(R.drawable.coffeemaniac1);
-                        //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                        assert linearLayout != null;
-                        linearLayout.addView(imageView);
-                        toast1.show();
                     }
                     exitFromLocation();
                     editor.putInt("coffee", 2);
                     editor.apply();
                 }
             });
-
         }
 
         if(coffee==3) {
@@ -142,25 +129,16 @@ public class Location2_1 extends AppCompatActivity {
             kakao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Toast.makeText(getApplication(), "Теплый какао греет руки!", Toast.LENGTH_SHORT).show();
                     if(!kak) {
                         kak=true;
                         editor.putBoolean("amer", true);
                     }
                     if(capuch&kak&amer&!cofemaniac) {
+                        Achieve achive = new Achieve();
+                        achive.achievement("Кофенатор",getApplicationContext(),R.drawable.coffeemaniac1);
                         cofemaniac=true;
                         editor.putBoolean("cofemaniac", true);
-                        Toast toast1 = Toast.makeText(Location2_1.this, "Кофенатор", Toast.LENGTH_LONG);
-                        toast1.setGravity(Gravity.CENTER, 0, 0);
-                        //Создаем разметку для заполнения ее изображением:
-                        LinearLayout linearLayout = (LinearLayout) toast1.getView();
-                        //Создаем в теле Toast объект типа ImageView:
-                        ImageView imageView = new ImageView(Location2_1.this);
-                        //Привязываем к нему изображение:
-                        imageView.setImageResource(R.drawable.coffeemaniac1);
-                        //Добавляем изображение к разметке для его отображения и запускаем Toast сообщение:
-                        assert linearLayout != null;
-                        linearLayout.addView(imageView);
-                        toast1.show();
                     }
                     exitFromLocation();
                     editor.putInt("coffee", 3);
@@ -189,6 +167,15 @@ public class Location2_1 extends AppCompatActivity {
             stopService(new Intent(this, MyService2.class));
         }
         super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
 

@@ -43,12 +43,12 @@ public class Location6 extends AppCompatActivity {
         coffee = save.getInt("coffee", coffee);
         game = save.getInt("game", game);
         cup = save.getInt("game", cup);
-        drus = save.getBoolean("drus", false);
-        crime = save.getBoolean("crime", false);
-        group = save.getBoolean("group", false);
-        group2 = save.getBoolean("group2", false);
-        group3 = save.getBoolean("group3", false);
-        answer = save.getBoolean("answer", false);
+        drus = save.getBoolean("drus", drus);
+        crime = save.getBoolean("crime", crime);
+        group = save.getBoolean("group", group);
+        group2 = save.getBoolean("group2", group2);
+        group3 = save.getBoolean("group3", group3);
+        answer = save.getBoolean("answer", answer);
         final SharedPreferences.Editor editor = save.edit();
         editor.putInt("location", 18);
         editor.apply();
@@ -100,14 +100,19 @@ public class Location6 extends AppCompatActivity {
         location6_2.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if ((coffee==0)&(game==0)) {
-                Toast.makeText(getApplication(), "Просто за пустым столом сидеть как то скучно", Toast.LENGTH_SHORT).show();
-            } else { if(game==0) {
-                exitFromLocation(Location6_2.class);
-            } else {
-                exitFromLocation(Location6_3.class);
-            }
-            }
+           if(crime) {
+               Toast.makeText(getApplication(), "Не время для отдыха, виновник не найден!", Toast.LENGTH_SHORT).show();
+           } else {
+               if ((coffee == 0) & (game == 0)) {
+                   Toast.makeText(getApplication(), "Просто за пустым столом сидеть как то скучно", Toast.LENGTH_SHORT).show();
+               } else {
+                   if (game == 0) {
+                       exitFromLocation(Location6_2.class);
+                   } else {
+                       exitFromLocation(Location6_3.class);
+                   }
+               }
+           }
         }
     });
 
@@ -122,6 +127,15 @@ public class Location6 extends AppCompatActivity {
             finish();
         } catch (Exception ignored) {
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!shouldPlay) {
+            stopService(new Intent(this, MyService2.class));
+            stopService(new Intent(this, MyService.class));
+        }
+        super.onDestroy();
     }
 
     @Override

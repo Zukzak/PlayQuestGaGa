@@ -159,19 +159,19 @@
                     android:visibility="invisible" />
 
                 <ImageView
-                    android:id="@+id/agent"
+                    android:id="@+id/traitor"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/agent007" />
+                    android:background="@drawable/traitor" />
 
                 <TextView
-                    android:id="@+id/textAgent"
+                    android:id="@+id/textTraitor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/rex_bold"
-                    android:text="@string/agent"
+                    android:text="@string/traitor"
                     android:textColor="@color/colorNameApp"
                     android:textSize="20sp"
                     android:visibility="invisible" />
